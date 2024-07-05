@@ -174,8 +174,7 @@ cron.schedule('0 20 * * *',
       console.log(`${shipmentIds}`)
       for (const shipmentId of shipmentIds) {
         const shipmentData = await getShipmentById(shipmentId)
-        await sendEmail(['john.naeth@gmail.com'], shipmentData)
-        console.log('It works')
+        await sendEmail([`${shipmentData.billingDetails.email}`], shipmentData)
       }
 
     } catch (error) {
